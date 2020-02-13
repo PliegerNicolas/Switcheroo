@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_192838) do
+ActiveRecord::Schema.define(version: 2020_02_13_200303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,13 +26,13 @@ ActiveRecord::Schema.define(version: 2020_02_13_192838) do
 
   create_table "instruments", force: :cascade do |t|
     t.string "name"
-    t.integer "price"
+    t.integer "price", default: 0
     t.text "description"
     t.string "latitude"
     t.string "longitude"
     t.string "photos"
-    t.string "status"
-    t.integer "views"
+    t.string "status", default: "available"
+    t.integer "views", default: 0
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_02_13_192838) do
     t.bigint "user_id"
     t.integer "renter_id"
     t.bigint "instrument_id"
-    t.string "status"
+    t.string "status", default: "open"
     t.date "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
