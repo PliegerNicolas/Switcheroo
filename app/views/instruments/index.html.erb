@@ -1,8 +1,11 @@
 <h1>All Instruments</h1>
 
-<% @instruments.each do |instrument| %>
-  <p>
-    <%= instrument.name %>
-    <%= image_tag(instrument.photos) %>
-  </p>
-<% end %>
+<div class="cards">
+  <% @instruments.each do |instrument| %>
+    <%= link_to instrument_path(instrument) do %>
+      <div class="card" style="background-image: url(<%= instrument.photos %>)">
+        <div class="name"><%= instrument.name %></div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
