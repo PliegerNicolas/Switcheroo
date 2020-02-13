@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_190524) do
+ActiveRecord::Schema.define(version: 2020_02_13_192838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "instrument_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["instrument_id"], name: "index_favorites_on_instrument_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "instruments", force: :cascade do |t|
     t.string "name"
@@ -28,6 +37,26 @@ ActiveRecord::Schema.define(version: 2020_02_13_190524) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_instruments_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "renter_id"
+    t.bigint "instrument_id"
+    t.string "status"
+    t.date "due_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["instrument_id"], name: "index_orders_on_instrument_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.bigint "order_id"
+    t.integer "stars"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_ratings_on_order_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,5 +79,10 @@ ActiveRecord::Schema.define(version: 2020_02_13_190524) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "instruments"
+  add_foreign_key "favorites", "users"
   add_foreign_key "instruments", "users"
+  add_foreign_key "orders", "instruments"
+  add_foreign_key "orders", "users"
+  add_foreign_key "ratings", "orders"
 end
