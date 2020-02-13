@@ -1,0 +1,18 @@
+.card {
+    position: relative;
+    margin: 20px 0;
+    width: 400px;
+    height: 200px;
+    border-radius: 4px;
+    border: 1px solid #666;
+    box-shadow: 0 0 10px rgba(0,0,0,.05);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .name {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: #fff;
+    }
+}
