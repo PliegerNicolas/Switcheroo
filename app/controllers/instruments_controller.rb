@@ -1,6 +1,8 @@
 class InstrumentsController < ApplicationController
+  before_action :set_instrument, only: %i[show edit update destroy]
+
   def index
-    @instruments = Instrument.all
+    @instruments = policy_scope(Instrument)
   end
 
   def show
@@ -19,5 +21,24 @@ class InstrumentsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def set_instrument
+    @instrument = Instrument.find(params[:id])
+    authorize @instrument
+  end
+
+  def instrument_params
+    params.require(:instrument).permit(
+      :name,
+      :price,
+      :latitude,
+      :longitude,
+      :status,
+      :views,
+      :user_id
+    )
   end
 end
