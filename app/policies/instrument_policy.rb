@@ -14,7 +14,7 @@ class InstrumentPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == User
+    record.user == user
   end
 
   def destroy?

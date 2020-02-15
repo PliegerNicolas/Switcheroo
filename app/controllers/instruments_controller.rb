@@ -30,8 +30,8 @@ class InstrumentsController < ApplicationController
   end
 
   def destroy
-    Cocktail.destroy(@cocktail.id)
-    redirect_to Cocktail_path
+    Instrument.destroy(@instrument.id)
+    redirect_to instrument_path
   end
 
   private
