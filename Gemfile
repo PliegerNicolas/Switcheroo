@@ -42,6 +42,7 @@ gem 'faker'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -63,3 +64,4 @@ gem 'simple_form'
 gem 'devise'
 gem 'pundit'
 gem 'country_select'
+gem 'cloudinary', '~> 1.12.0'
