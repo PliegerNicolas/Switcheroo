@@ -10,10 +10,13 @@ class InstrumentsController < ApplicationController
 
   def new
     @instrument = Instrument.new
+    authorize @instrument
   end
 
   def create
     @instrument = Instrument.new(instrument_params)
+    authorize @instrument
+    @instrument.user = current_user
     if @instrument.save
       redirect_to instrument_path(@instrument.id)
     else
