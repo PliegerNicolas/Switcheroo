@@ -6,7 +6,7 @@ class InstrumentPolicy < ApplicationPolicy
   end
 
   def new?
-    @create
+    create?
   end
 
   def create?
