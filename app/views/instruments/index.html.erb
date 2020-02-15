@@ -7,5 +7,8 @@
         <div class="name"><%= instrument.name %></div>
       </div>
     <% end %>
+  <% if policy(Instrument).create? %>
+  <%= link_to "New instrument", new_instrument_path %>
+<% end %>
   <% end %>
 </div>
