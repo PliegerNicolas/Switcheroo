@@ -7,10 +7,15 @@
 <div class="cards">
   <% @instruments.each do |instrument| %>
     <%= link_to instrument_path(instrument) do %>
-      <div class="card" style="background-image: url(<%= asset_path "instruments/#{instrument.photos}" %>)">
 
-        <div class="name"><%= instrument.name %></div>
+      <div class="card">
+        <div class="card-image" style="background-image: url(<%= instrument.photos %>)"></div>
+
+        <div class="card-info">
+          <div class="card-name"><%= instrument.name %></div>
+          <div class="card-price"><%= instrument.price %> &euro; </div>
+        </div>
       </div>
     <% end %>
   <% end %>
-</div>
+

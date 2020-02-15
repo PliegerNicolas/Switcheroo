@@ -1,18 +1,102 @@
-.card {
-    position: relative;
-    margin: 20px 0;
-    width: 400px;
-    height: 200px;
-    border-radius: 4px;
-    border: 1px solid #666;
-    box-shadow: 0 0 10px rgba(0,0,0,.05);
-    background-size: cover;
-    background-repeat: no-repeat;
+// .card {
+//     position: relative;
+//     margin: 20px 0;
+//     width: 400px;
+//     height: 200px;
+//     border-radius: 4px;
+//     border: 1px solid #666;
+//     box-shadow: 0 0 10px rgba(0,0,0,.05);
+//     background-size: cover;
+//     background-repeat: no-repeat;
 
-    .name {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        background-color: #fff;
-    }
+//     .name {
+//         position: absolute;
+//         bottom: 0;
+//         width: 100%;
+//         background-color: #fff;
+//     }
+// }
+
+
+body {
+  background: #F2F1F2;
+  font-family: 'Open-sans', sans-serif;
+}
+
+
+// .card {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-around;
+//   border-radius: 5px;
+//   box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+//   height: 180px;
+//   width: 400px;
+//   text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+//   background-size: cover;
+//   background-position: 80% 100%;
+//     /* background-position: 80% 100%;  --> offsets initial background photo
+//     postion (1st-horizontal position / 2nd-vertical
+//     https://www.w3schools.com/cssref/pr_background-position.asp*/
+//   color: #fff;
+//   font-size: 16px;
+//   margin-bottom: 30px;
+// }
+
+
+.card {
+  overflow: hidden;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+  margin: 30px 0;
+}
+
+.card-image {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-info {
+  background: rgb(250, 250, 250);
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-name {
+  background: rgb(250, 250, 250);
+  align-items: left;
+  justify-content: space-between;
+  padding: 16px;
+  height: 50px;
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.card-price {
+  background: rgb(250, 250, 250);
+  display: flex;
+  align-items: right;
+  justify-content: space-between;
+  padding: 16px;
+  height: 50px;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+
+// .card-trip img {
+//   width: 100%;
+//   object-fit: cover;
+// }
+
+.card h2 {
+  margin: 0;
+}
+
+.card p {
+  margin: 0;
 }
