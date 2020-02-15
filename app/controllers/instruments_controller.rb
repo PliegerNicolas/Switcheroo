@@ -9,18 +9,29 @@ class InstrumentsController < ApplicationController
   end
 
   def new
+    @instrument = Instrument.new
   end
 
   def create
+    @instrument = Instrument.new(instrument_params)
+    if @instrument.save
+      redirect_to instrument_path(@instrument.id)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    @instrument.update(instrument_params)
+    redirect_to instrument_path
   end
 
   def destroy
+    Instrument.destroy(@instrument.id)
+    redirect_to instrument_path
   end
 
   private
