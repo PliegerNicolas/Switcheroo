@@ -1,5 +1,15 @@
 require 'faker'
 
+instruments = [
+'brwne0fehawjr7ihbni6',
+'e1l174x1xwwyj6aeprxk',
+'sayzq8hkiya1qrxt0cex',
+'ynjhaj1anzjpegfc7vir',
+'cuqogphlew1sadffqv37',
+'zarviq2rv2lq3xxlzkor',
+'iwsgelka0iurvyhsullu'
+]
+
 puts "Destroy Instruments"
 Instrument.destroy_all if Rails.env.development?
 puts "Destroy Users"
@@ -14,7 +24,7 @@ print "Creating instrument"
       description: Faker::Lorem.sentence,
       latitude: Faker::Address.latitude,
       longitude: Faker::Address.longitude,
-      photos: Faker::LoremPixel.image(size: "400x400", category: 'nightlife'),
+      photos: instruments.sample,
       status: %w(available rented).sample,
       views: (1..100).to_a.sample,
       user: User.create!(

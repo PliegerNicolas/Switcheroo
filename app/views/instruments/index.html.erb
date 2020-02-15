@@ -1,5 +1,9 @@
 <h1>All Instruments</h1>
 
+<% if policy(Instrument).create? %>
+  <%= link_to "New instrument", new_instrument_path %>
+<% end %>
+
 <div class="cards">
   <% @instruments.each do |instrument| %>
     <%= link_to instrument_path(instrument) do %>
@@ -11,7 +15,6 @@
           <div class="card-name"><%= instrument.name %></div>
           <div class="card-price"><%= instrument.price %> &euro; </div>
         </div>
-
       </div>
     <% end %>
   <% end %>
