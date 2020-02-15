@@ -1,12 +1,3 @@
 <h1>Add instrument</h1>
 
-<%= simple_form_for @instrument do |f| %>
-    <%= f.input :name %>
-    <%= f.input :price %>
-    <%= f.input :description %>
-    <%= f.input :latitude %>
-    <%= f.input :longitude %>
-    <%= f.input :photos %>
-    <%= f.input :status %>
-    <%= f.button :submit, class: 'btn-primary' %>
-<% end %>
+<%= render 'form' %>
