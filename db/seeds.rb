@@ -1,13 +1,13 @@
 require 'faker'
 
 instruments = [
-'photo-1542590894-af0cf34bc9bc.jpeg',
-'photo-1460036521480-ff49c08c2781.jpeg',
-'photo-1482443462550-d2c99314ab6a.jpeg',
-'photo-1508081883599-a58656e0ac48.jpeg',
-'photo-1514649923863-ceaf75b7ec00.jpeg',
-'photo-1528303538427-209fc9098e73.jpeg',
-'photo-1530917203633-106d4a1a0967.jpeg'
+'brwne0fehawjr7ihbni6',
+'e1l174x1xwwyj6aeprxk',
+'sayzq8hkiya1qrxt0cex',
+'ynjhaj1anzjpegfc7vir',
+'cuqogphlew1sadffqv37',
+'zarviq2rv2lq3xxlzkor',
+'iwsgelka0iurvyhsullu'
 ]
 
 puts "Destroy Instruments"
