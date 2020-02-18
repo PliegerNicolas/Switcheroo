@@ -4,7 +4,7 @@
     <%= f.input :description %>
     <%= f.input :latitude %>
     <%= f.input :longitude %>
-    <%= f.input :photos %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.input :status %>
     <%= f.button :submit, class: 'btn-primary' %>
 <% end %>
