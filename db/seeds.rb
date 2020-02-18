@@ -1,20 +1,16 @@
 require 'faker'
 
 instruments = [
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582051338/KgQ2tWoaFnjfzcKwra2sPrTP.jpg', 'inst-img1'],
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582051337/JMjxD4N2WpRLSLEBVQchA46H.jpg', 'inst-img2'],
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582051336/NBN8JgKtpMxmw4eTuA9BMMBH.jpg', 'inst-img3'],
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582051333/MAUZs1dXanp8Pz3XAW2o49s6.jpg', 'inst-img4'],
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582051329/gLZVq2EwpkWxuyUzccHNLMoZ.jpg', 'inst-img5'],
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582051197/VSrQUmF29PEkTcZygHBQCdgQ.jpg', 'inst-img6']
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053443/ytgftaeb3x8sz3y3ndrz.jpg', 'inst-img1'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053438/efhzhos9rfr8m9g3jou1.jpg', 'inst-img2']
 ]
 
-puts 'Destroyed Instruments'
+puts 'Destroy Instruments'
 Instrument.destroy_all
-puts 'Destroyed Users'
+puts 'Destroy Users'
 User.destroy_all
 
-print 'Creating instruments'
+print 'Creating instrument'
 10.times do
   print '.'
   i = Instrument.create!(
