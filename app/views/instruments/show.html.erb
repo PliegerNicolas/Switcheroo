@@ -1,25 +1,26 @@
 <div class="container">
-
   <h1><%= @instrument.name %></h1>
   <%= link_to "Back to all instruments", root_path %>
 
-<div class="container">
-  <div class="card"></div>
-  <div class="card"></div>
-</div>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Ad</a></li>
+    <li class="breadcrumb-item active" aria-current="page">ID1234</li>
+  </ol>
+</nav>
+
+<div class="bg white">
+  <div class="container p-3">
+    <div class="row">
+      <div class="col-md-8">
+        <%=image_tag("cello.png", alt: "Example Image")%>
 
 
-  <div class="card">
-    <div class="col-sm-12 col-md-6">
-      <h3>Details</h3>
-      <table class="table table-bordered">
-        <tbody>
-          <thead>
-            <th>Dscription 1</th>
-            <th>Description 2</th>
-            <th>Action</th>
-          </thead>
-        </tbody>
-      </table>
-  </div>
+              <div class="card-name"><%= @instrument.name %></div>
+              <div class="card-price"><%= @instrument.price %> &euro; </div>
+            </div>
+          </div>
 </div>
+
