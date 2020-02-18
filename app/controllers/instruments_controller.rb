@@ -50,11 +50,13 @@ class InstrumentsController < ApplicationController
     params.require(:instrument).permit(
       :name,
       :price,
+      :description,
       :latitude,
       :longitude,
       :status,
       :views,
-      :user_id
+      :user_id,
+      photos: []
     )
   end
 end
