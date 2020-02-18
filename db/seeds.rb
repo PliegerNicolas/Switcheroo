@@ -2,7 +2,13 @@ require 'faker'
 
 instruments = [
   ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053443/ytgftaeb3x8sz3y3ndrz.jpg', 'inst-img1'],
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053438/efhzhos9rfr8m9g3jou1.jpg', 'inst-img2']
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053438/efhzhos9rfr8m9g3jou1.jpg', 'inst-img2'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053431/decuoe3zxokbxkcyqri9.jpg', 'inst-img3'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053427/yuehvyqtk22xgrhhnpwp.jpg', 'inst-img4'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053419/nlo9jppz9wkeq8d5ypsm.jpg', 'inst-img5'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053407/l4ttjsfnokwks3qe2kf8.jpg', 'inst-img6'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053400/vzdyn8cwvn6red6gnpdh.jpg', 'inst-img7'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053392/xahp94pwzdrm4sd7ilac.jpg', 'inst-img8']
 ]
 
 puts 'Destroy Instruments'
