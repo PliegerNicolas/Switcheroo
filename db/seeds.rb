@@ -1,25 +1,24 @@
 require 'faker'
 
 instruments = [
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053443/ytgftaeb3x8sz3y3ndrz.jpg', 'inst-img1'],
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053438/efhzhos9rfr8m9g3jou1.jpg', 'inst-img2'],
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053431/decuoe3zxokbxkcyqri9.jpg', 'inst-img3'],
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053427/yuehvyqtk22xgrhhnpwp.jpg', 'inst-img4'],
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053419/nlo9jppz9wkeq8d5ypsm.jpg', 'inst-img5'],
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053407/l4ttjsfnokwks3qe2kf8.jpg', 'inst-img6'],
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053400/vzdyn8cwvn6red6gnpdh.jpg', 'inst-img7'],
-  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053392/xahp94pwzdrm4sd7ilac.jpg', 'inst-img8']
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053443/piano.jpg', 'piano.jpg'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053438/tamtam.jpg', 'tamtam.jpg'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053427/violin.jpg', 'violin.jpg'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053419/banjo.jpg', 'banjo.jpg'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053407/guitar-acoustic.jpg', 'guitar-acoustic.jpg'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053400/guitar-electric.jpg', 'guitar-electric.jpg'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053392/drum.jpg', 'drum.jpg']
 ]
 
-puts 'Destroy Instruments'
+puts 'Destroyed Instruments'
 Instrument.destroy_all
-puts 'Destroy Users'
+puts 'Destroyed Users'
 User.destroy_all
 
-print 'Creating instrument'
+print 'Creating instruments'
 10.times do
   print '.'
-  i = Instrument.create!(
+  new_instrument = Instrument.create!(
     name: Faker::Music.instrument,
     price: Faker::Number.within(range: 30..180),
     description: Faker::Lorem.sentence,
@@ -35,7 +34,7 @@ print 'Creating instrument'
   )
   image_path = instruments.sample
   file = URI.open(image_path[0])
-  i.photos.attach(io: file, filename: image_path[1])
+  new_instrument.photos.attach(io: file, filename: image_path[1].to_s)
 end
 
 puts ''
