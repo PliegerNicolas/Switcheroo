@@ -1,22 +1,20 @@
 require 'faker'
 
 instruments = [
-  ['./app/assets/images/instruments/bigtamtam.jpg', 'bigtamtam'],
-  ['./app/assets/images/instruments/elecgratgrat.jpg', 'elecgratgrat'],
-  ['./app/assets/images/instruments/gratgrat.jpg', 'gratgrat'],
-  ['./app/assets/images/instruments/hollowgratgrat.jpg', 'hollowgratgrat'],
-  ['./app/assets/images/instruments/shapshap.jpg', 'shapshap'],
-  ['./app/assets/images/instruments/shapshap1.jpg', 'shapshap1'],
-  ['./app/assets/images/instruments/tamtam.jpg', 'tamtam'],
-  ['./app/assets/images/instruments/taptap.jpg', 'taptap']
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582051338/KgQ2tWoaFnjfzcKwra2sPrTP.jpg', 'inst-img1'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582051337/JMjxD4N2WpRLSLEBVQchA46H.jpg', 'inst-img2'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582051336/NBN8JgKtpMxmw4eTuA9BMMBH.jpg', 'inst-img3'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582051333/MAUZs1dXanp8Pz3XAW2o49s6.jpg', 'inst-img4'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582051329/gLZVq2EwpkWxuyUzccHNLMoZ.jpg', 'inst-img5'],
+  ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582051197/VSrQUmF29PEkTcZygHBQCdgQ.jpg', 'inst-img6']
 ]
 
-puts 'Destroy Instruments'
-Instrument.destroy_all if Rails.env.development?
-puts 'Destroy Users'
-User.destroy_all if Rails.env.development?
+puts 'Destroyed Instruments'
+Instrument.destroy_all
+puts 'Destroyed Users'
+User.destroy_all
 
-print 'Creating instrument'
+print 'Creating instruments'
 10.times do
   print '.'
   i = Instrument.create!(
