@@ -1,6 +1,7 @@
 <div class="container">
 
   <h1><%= @instrument.name %></h1>
+  <%= link_to "User profile", user_path(@instrument.user.id) %>
   <%= link_to "Back to all instruments", root_path %>
 
 <div class="container">

@@ -6,6 +6,10 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
+    true
+  end
+
+  def profil?
     record.id == user.id
   end
 end
