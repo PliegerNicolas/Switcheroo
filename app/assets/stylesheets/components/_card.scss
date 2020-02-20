@@ -18,10 +18,6 @@
 // }
 
 
-body {
-  background: #F2F1F2;
-  font-family: 'Open-sans', sans-serif;
-}
 
 
 // .card {
@@ -53,8 +49,8 @@ body {
 }
 
 .card-image {
+  height: 100%;
   width: 100%;
-  height: 200px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
