@@ -14,3 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+// document.querySelector(".availability-btn").addEventListener("click", ()=>{
+//   document.querySelector(".pop-up-container").classList.remove("hidden");
+// })
