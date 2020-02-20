@@ -3,6 +3,10 @@ class Instrument < ApplicationRecord
   belongs_to :user
   has_many :favorites
   has_many_attached :photos
-  validates :name, :price, :latitude, :longitude, :status, :views, :user_id, presence: true
+  validates :name, :price, :status, :views, :user_id, presence: true
   validates :status, inclusion: { in: INSTRUMENT_STATUS }
+  geocoded_by :address
+  after_validation :geocode
+  #  :latitude, :longitude,
+
 end

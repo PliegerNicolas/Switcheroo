@@ -12,12 +12,14 @@ class InstrumentsController < ApplicationController
   def new
     @instrument = Instrument.new
     authorize @instrument
+    @instrument.address = [current_user.street_name, current_user.location, current_user.country].compact.join(', ')
   end
 
   def create
     @instrument = Instrument.new(instrument_params)
     authorize @instrument
     @instrument.user = current_user
+
     if @instrument.save
       redirect_to instrument_path(@instrument.id)
     else
@@ -56,6 +58,7 @@ class InstrumentsController < ApplicationController
       :status,
       :views,
       :user_id,
+      :address,
       photos: []
     )
   end
