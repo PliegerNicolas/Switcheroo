@@ -8,8 +8,4 @@ class UserPolicy < ApplicationPolicy
   def show?
     true
   end
-
-  def profil?
-    record.id == user.id
-  end
 end
