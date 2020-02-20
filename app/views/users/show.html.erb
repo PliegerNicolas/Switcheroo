@@ -1,2 +1,6 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= @user.username %>
+<p>Member since : <%= @user.created_at %></p>
+<%= @user.country %>
+<% @user.orders.each do |order| %>
+  <% raise %>
+<% end %>
