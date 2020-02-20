@@ -1,9 +1,14 @@
+    <% @instrument.errors.full_messages.each do |msg| %>
+        <p class="">
+            <%= msg %>
+        </p>
+    <% end %>
+
 <%= simple_form_for @instrument do |f| %>
     <%= f.input :name %>
     <%= f.input :price %>
     <%= f.input :description %>
-    <%= f.input :latitude %>
-    <%= f.input :longitude %>
+    <%= f.input :address %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.input :status %>
     <%= f.button :submit, class: 'btn-primary' %>
