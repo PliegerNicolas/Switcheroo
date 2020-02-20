@@ -1,25 +1,92 @@
 <div class="container">
-
   <h1><%= @instrument.name %></h1>
+  <%= link_to "User profile", user_path(@instrument.user.id) %>
   <%= link_to "Back to all instruments", root_path %>
 
-<div class="container">
-  <div class="card"></div>
-  <div class="card"></div>
-</div>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Ad</a></li>
+    <li class="breadcrumb-item active" aria-current="page">ID1234</li>
+  </ol>
+</nav>
+
+<!-- <div class="bg white">
+  <div section="container py-3">
+    <div class="row">
+      <div class="col-10">
+        <div class="instrument-card">
+        <% i_photo = @instrument.photos.first %>
+        <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path i_photo.key, height: 300, width: 400, crop: :fill %>')">
+        </div>
+      </div>
+      </div>
+      <div class="col-2">
+          <h3>Teste</h3>
+      </div>
+
+              <div class="card-name"><%= @instrument.name %></div>
+              <div class="card-price"><%= @instrument.price %> &euro; </div>
+            </div>
+          </div>
+</div> -->
+
+<div class="bg white">
+  <div section="container">
+    <div class="bg-white instrument-information">
+      <div class="instrument-card">
+        <% i_photo = @instrument.photos.first %>
+        <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path i_photo.key, height: 300, width: 400, crop: :fill %>')">
+        </div>
+      </div>
+
+      <div class="renter-info">
+        <div class="row">
+          <div class="col-xs-2"></div>
+          <div class="col-xs-5">
+            <a href="/en/profile/1313">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", 'aria-haspopup': true, 'aria-expanded': false %>
+            </a>
+            <div class="user-name"></div>
+              <strong>Afonso Cardoso</strong>
+              <i class="glyphicon glyphicon-ok-sign"></i>
+          </div>
+          <div class="col-xs-3"></div>
+      </div>
+
+      <div class="instrument-details">
+        <!-- <div class="avatar">
+        <img alt="" src="sofia.jpg"> -->
+        </div>
+        <div class="card bg-white rounded-0">
 
 
-  <div class="card">
-    <div class="col-sm-12 col-md-6">
-      <h3>Details</h3>
-      <table class="table table-bordered">
-        <tbody>
-          <thead>
-            <th>Dscription 1</th>
-            <th>Description 2</th>
-            <th>Action</th>
-          </thead>
-        </tbody>
-      </table>
-  </div>
-</div>
+            <div class="d-flex justify-content-between align-items-center container px-3 pt-0 pb-2">
+              <p><strong>10€/hour</strong></p>
+            </div>
+
+            <a href="#" class="btn btn-primary m-3">Check availability</a>
+
+             <div class="border-bottom">
+            </div>
+        </div>
+      </div>
+  <!-- <div section="container">
+    <div class="instrument-basics">
+      <h2> Basic information </h2>
+      <ul>
+        <li> teste </li>
+        <li> teste </li>
+        <li> teste </li>
+      </ul>
+      <h2> Detailed information </h2>
+      <h3> This is an amazing guitar </h3>
+    </div>
+  </div> -->
+  <!-- <div class="items__search_map_container">
+      <div id="search_map" class="search_map" style="position: relative; overflow: hidden;">
+        <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+          <div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"> -->
+
+

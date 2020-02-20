@@ -1,5 +1,6 @@
 require 'faker'
 
+
 instruments = [
   ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053443/piano.jpg', 'piano.jpg'],
   ['https://res.cloudinary.com/dhemw39dw/image/upload/v1582053438/tamtam.jpg', 'tamtam.jpg'],
@@ -34,7 +35,8 @@ print 'Creating instruments'
   )
   image_path = instruments.sample
   file = URI.open(image_path[0])
-  new_instrument.photos.attach(io: file, filename: image_path[1].to_s)
+  filename = File.basename(URI.parse(image_path[0]).path)
+  new_instrument.photos.attach(io: file, filename: filename)
 end
 
 puts ''
