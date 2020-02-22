@@ -2,7 +2,11 @@ class InstrumentsController < ApplicationController
   before_action :set_instrument, only: %i[show edit update destroy]
 
   def index
-    @instruments = policy_scope(Instrument)
+    if params[:query].present?
+      query_search(params[:query])
+    else
+      @instruments = policy_scope(Instrument)
+    end
   end
 
   def show
@@ -60,6 +64,15 @@ class InstrumentsController < ApplicationController
       :user_id,
       :address,
       photos: []
+    )
+  end
+
+  def query_search(query)
+    @query = query
+    instruments = policy_scope(Instrument)
+    @instruments = instruments.where(
+      "instruments.name iLike '%#{query}%'
+      or instruments.description iLike '%#{query}%'"
     )
   end
 end

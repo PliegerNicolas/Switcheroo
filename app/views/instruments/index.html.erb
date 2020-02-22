@@ -1,24 +1,32 @@
 <h1>All Instruments</h1>
-
+<div class="index-query-form">
+  <%= simple_form_for :search, url: root_path, method: "get" do |f| %>
+  <%= f.text_field :query, name: "query", value: @query %>
+  <%= f.submit "Search", name: nil %>
+  <% end %>
+</div>
+  <% if params[:query].present? %>
+  <p>You found <strong><%= @instruments.count %></strong> results by search <strong><%= params[:query] %></strong>.</p>
+  <% end %>
 <div class="cards">
   <% @instruments.each do |instrument| %>
-    <%= link_to instrument_path(instrument) do %>
+  <%= link_to instrument_path(instrument) do %>
 
-      <div class="card">
-        <% i_photo = instrument.photos.first %>
-        <div class="card-image"
-          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-            <% if !i_photo.nil? %>
-            url('<%= cl_image_path i_photo.key, height: 300, width: 400, crop: :fill %>');
-            <% end %>
-          ">
-        </div>
-
-        <div class="card-info">
-          <div class="card-name"><%= instrument.name %></div>
-          <div class="card-price"><%= instrument.price %> &euro; </div>
-        </div>
-      </div>
+  <div class="card">
+    <% i_photo = instrument.photos.first %>
+    <div class="card-image"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    <% if !i_photo.nil? %>
+    url('<%= cl_image_path i_photo.key, height: 300, width: 400, crop: :fill %>');
     <% end %>
-  <% end %>
+    ">
+  </div>
+
+  <div class="card-info">
+    <div class="card-name"><%= instrument.name %></div>
+    <div class="card-price"><%= instrument.price %> &euro; </div>
+  </div>
+</div>
+<% end %>
+<% end %>
 </div>
