@@ -45,6 +45,7 @@
 
 .instrument-information {
   flex: 1;
+  overflow: hidden;
 }
 
 .instrument-img {
@@ -69,4 +70,27 @@
 .owner-info {
   padding: 10px 15px;
   margin: 0px 0px 10px 10px;
+}
+
+.choose-dates {
+  padding: 10px 15px;
+}
+
+.fa-calendar {
+  color: #555555;
+}
+
+.cn {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+
+.transparent {
+  background-color: transparent !important;
+  padding: 5px;
+}
+
+.until {
+  padding-left: 20px;
 }

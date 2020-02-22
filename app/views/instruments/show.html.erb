@@ -23,32 +23,91 @@
           <div class="bg-white instrument-details">
             <div>
               <h1><%= @instrument.name %></h1>
-              <h3>10€/hour</h3>
+
             </div>
 
-            <div class="instrument-details_price">
-              <% instrument_orders = Order.where("instrument_id = #{@instrument.id}") %>
-              <% if instrument_orders.empty? || instrument_orders.last.status == 'open'%>
-              <%= link_to "Order", new_instrument_order_path(@instrument.id), class: "btn availability-btn" %>
-              <% else %>
-              <div class="btn closed-btn"><%= instrument_orders.last.status %></div>
-              <% end %>
+            <div class="instrument-price">
+              <h3>10€/hour</h3>
             </div>
 
           </div>
         </div>
+          
 
-        <div class="extra-info">
-          <div class="bg-white owner-info">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-            <strong><%= @instrument.user.username %></strong>
+          
+              #<% instrument_orders = Order.where("instrument_id = #{@instrument.id}") %>
+              #<% if instrument_orders.empty? || instrument_orders.last.status == 'open'%>
+              #<%= link_to "Order", new_instrument_order_path(@instrument.id), class: "btn availability-btn" %>
+              #<% else %>
+              #<div class="btn closed-btn"><%= instrument_orders.last.status %></div>
+              #<% end %>
+         
+
+            <div class="extra-info">
+              <div class="bg-white owner-info">
+                <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+                <strong><%= @instrument.user.username %></strong>
+              </div>
+
+              <div class="bg-white instrument-map">
+                <%= image_tag "map.png" ,width: 300 %>
+              </div>
+            </div>
+      </div>
+
+      <div class="choose-dates">
+            <p>Choose dates:</p>
+            <div class="pick-dates-pannel row">
+              <div class="col-xs-5">
+                <div class="input-group">
+<!--                   <div class="input-group-prepend">
+                    <span class="input-group-text transparent border-0"><i class="fas fa-calendar"></i></span>
+                  </div> -->
+                  <div class="form-wrapper row" style="width: 400px; margin: 0 auto;">
+                  <%= simple_form_for :search, method: "get" do |f| %>
+                  <i class="fas fa-calendar until"></i>
+                  <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                  <div class="form-inputs">
+                  <i class="fas fa-calendar until"></i>
+                  <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+                  </div>
+                  <%= f.button :submit, "Go", class: "btn btn-primary" %>
+                  <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-1 cn">
+                <i class="fas fa-long-arrow-alt-right"></i>
+              </div>
+              <div class="col-xs-5">
+                <div class="input-group">
+   <!--                <div class="input-group-prepend">
+                    <span class="input-group-text transparent border-0"><i class="fas fa-calendar until"></i></span>
+                  </div> -->
+                  <input type="text" name="end_at" id="pick-end-date" class="form-control transparent border-0" placeholder="Until" readonly="" data-provide="datepicker">
+                 <!--  <script>
+                    $(function() {
+                      $('#pick-start-date').datepicker();
+                    });
+                  </script> -->
+                </div>
+                <a href="#" class="btn availability-btn">Check availability</a>
+              </div>
+            </div>
           </div>
+    </div>
+  </div>
+
+<!-- <div class="pop-up-container hidden">
+  <div class="pop-up-background"></div>
+  <div class="pop-up-content">
+    <p>Date picker</p>
+  </div>
+
+</div> -->
 
 
 
-          <div class="bg-white instrument-map">
-            <%= image_tag "map.png" ,width: 300 %>
-          </div>
         </div>
       </div>
     </div>
