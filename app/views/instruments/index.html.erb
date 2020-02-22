@@ -2,9 +2,10 @@
 
 <div class="cards">
   <% @instruments.each do |instrument| %>
-    <%= link_to instrument_path(instrument) do %>
 
       <div class="card">
+    <%= link_to instrument_path(instrument) do %>
+
         <% i_photo = instrument.photos.first %>
         <div class="card-image"
           style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
@@ -18,7 +19,7 @@
           <div class="card-name"><%= instrument.name %></div>
           <div class="card-price"><%= instrument.price %> &euro; </div>
         </div>
+        <% end %>
       </div>
-    <% end %>
   <% end %>
 </div>
