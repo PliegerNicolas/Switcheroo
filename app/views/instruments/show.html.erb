@@ -3,53 +3,58 @@
   <%= link_to "Back to all instruments", root_path %>
 
 
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Ad</a></li>
-    <li class="breadcrumb-item active" aria-current="page">ID1234</li>
-  </ol>
-</nav>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Ad</a></li>
+      <li class="breadcrumb-item active" aria-current="page">ID1234</li>
+    </ol>
+  </nav>
 
-<div class="bg white">
-  <div section="container">
+  <div class="bg white">
+    <div section="container">
 
-    <div class="instrument-card">
+      <div class="instrument-card">
 
-      <div class="instrument-information">
-        <% i_photo = @instrument.photos.first %>
-        <div class="instrument-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path i_photo.key, height: 300, width: 400, crop: :fill %>')">
-        </div>
-
-        <div class="bg-white instrument-details">
-          <div>
-          <h1><%= @instrument.name %></h1>
-          <h3>10€/hour</h3>
+        <div class="instrument-information">
+          <% i_photo = @instrument.photos.first %>
+          <div class="instrument-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path i_photo.key, height: 300, width: 400, crop: :fill %>')">
           </div>
 
-          <div class="instrument-details_price">
-            <a href="#" class="btn availability-btn">Check availability</a>
+          <div class="bg-white instrument-details">
+            <div>
+              <h1><%= @instrument.name %></h1>
+              <h3>10€/hour</h3>
+            </div>
+
+            <div class="instrument-details_price">
+              <% instrument_orders = Order.where("instrument_id" == @instrument.id) %>
+              <% if instrument_orders.last.status == 'open' %>
+              <%= link_to "Order", new_instrument_order_path(@instrument.id), class: "btn availability-btn" %>
+              <% else %>
+              <div class="btn closed-btn"><%= instrument_orders.last.status %></div>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="extra-info">
+          <div class="bg-white owner-info">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
+            <strong><%= @instrument.user.username %></strong>
           </div>
 
+
+
+          <div class="bg-white instrument-map">
+            <%= image_tag "map.png" ,width: 300 %>
+          </div>
         </div>
       </div>
-
-      <div class="extra-info">
-        <div class="bg-white owner-info">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
-          <strong><%= @instrument.user.username %></strong>
-        </div>
-
-
-
-        <div class="bg-white instrument-map">
-          <%= image_tag "map.png" ,width: 300 %>
-        </div>
-      </div>
+    </div>
   </div>
 </div>
-</div>
-
 <!-- <div class="pop-up-container hidden">
   <div class="pop-up-background"></div>
   <div class="pop-up-content">
