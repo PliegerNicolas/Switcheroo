@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  ORDER_STATUS = %w[closed open]
+  ORDER_STATUS = %w[closed open pending]
   belongs_to :user
   belongs_to :renter, class_name: 'User', foreign_key: 'user_id'
   belongs_to :instrument

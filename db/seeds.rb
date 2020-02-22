@@ -25,7 +25,7 @@ print 'Creating instruments'
     description: Faker::Lorem.sentence,
     latitude: Faker::Address.latitude,
     longitude: Faker::Address.longitude,
-    status: %w[available rented].sample,
+    status: 'available',
     views: (1..100).to_a.sample,
     user: User.create!(
       email: Faker::Internet.email,
