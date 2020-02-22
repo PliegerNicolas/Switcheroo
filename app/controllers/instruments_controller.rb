@@ -55,14 +55,10 @@ class InstrumentsController < ApplicationController
   def instrument_params
     params.require(:instrument).permit(
       :name,
-      :price,
-      :description,
-      :latitude,
-      :longitude,
-      :status,
-      :views,
+      :price, :description,
+      :latitude, :longitude, :address,
+      :status, :views,
       :user_id,
-      :address,
       photos: []
     )
   end

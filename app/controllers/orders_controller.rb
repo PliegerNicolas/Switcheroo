@@ -3,7 +3,11 @@ class OrdersController < ApplicationController
   def new
     # Rename the method "create" and make it a post ?
     @order = Order.new(order_params)
-    @order.status = 'closed' if @order.status == 'open'
+    @order.status = 'pending' if @order.status == 'open'
+    if @order.instrument.status == 'available'
+      @order.instrument.status = 'pending'
+      @order.instrument.save
+    end
     @order.save
     authorize @order
     redirect_to instrument_path(@instrument.id)
@@ -14,8 +18,8 @@ class OrdersController < ApplicationController
   def order_params
     {
       instrument_id: @instrument.id,
-      renter_id: current_user.id,
-      user_id: @instrument.user.id,
+      renter_id: @instrument.user.id,
+      user_id: current_user.id,
       due_date: Date.new # @TODO Making adding a real due date possible.
     }
   end

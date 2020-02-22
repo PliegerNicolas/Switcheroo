@@ -1,6 +1,18 @@
-<%= @user.username %>
+<h2><%= @user.username.capitalize %>'s instruments.</h2>
+<% @user.instruments.each do |instrument| %>
+  <div class="card">
+    <% i_photo = instrument.photos.first %>
+      <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+      <% if !i_photo.nil? %>
+        url('<%= cl_image_path i_photo.key, height: 300, width: 400, crop: :fill %>');
+      <% end %> ">
+    </div>
+    <p><%= instrument.name %></p>
+    <p><%= instrument.status %></p>
+    <p><%= instrument.description %></p>
+    <p>Price : <%= instrument.price %></p>
+  </div>
+<% end %>
+
 <p>Member since : <%= @user.created_at %></p>
 <%= @user.country %>
-<% @user.orders.each do |order| %>
-  <% raise %>
-<% end %>
