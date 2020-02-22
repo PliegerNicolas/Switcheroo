@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  def profile
+  def dashboard
     @orders = current_user.orders
     @instruments = current_user.instruments
     authorize current_user
