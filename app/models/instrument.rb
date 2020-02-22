@@ -1,5 +1,5 @@
 class Instrument < ApplicationRecord
-  INSTRUMENT_STATUS = %w[rented available]
+  INSTRUMENT_STATUS = %w[rented available pending]
   belongs_to :user
   has_many :favorites
   has_many_attached :photos

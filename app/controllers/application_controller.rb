@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # [...]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :store_back_path
   include Pundit
 
   # Pundit: white-list approach.
@@ -31,6 +32,16 @@ class ApplicationController < ActionController::Base
                                         location
                                         country
                                       ])
+  end
+
+  def store_back_path
+    session[:back] ||= []
+    session[:back] << request.referer unless request.referer.nil?
+    session[:back].reverse.pop if session[:back].size > 2
+  end
+
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || session[:back].first
   end
 
   private

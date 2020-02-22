@@ -2,7 +2,6 @@
   <%= link_to "User profile", user_path(@instrument.user.id) %>
   <%= link_to "Back to all instruments", root_path %>
 
-
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -24,21 +23,31 @@
           <div class="bg-white instrument-details">
             <div>
               <h1><%= @instrument.name %></h1>
+
             </div>
 
-            <div class="instrument-details_price">
+            <div class="instrument-price">
               <h3>10€/hour</h3>
             </div>
 
           </div>
         </div>
+          
+
+          
+              #<% instrument_orders = Order.where("instrument_id = #{@instrument.id}") %>
+              #<% if instrument_orders.empty? || instrument_orders.last.status == 'open'%>
+              #<%= link_to "Order", new_instrument_order_path(@instrument.id), class: "btn availability-btn" %>
+              #<% else %>
+              #<div class="btn closed-btn"><%= instrument_orders.last.status %></div>
+              #<% end %>
+         
 
             <div class="extra-info">
               <div class="bg-white owner-info">
                 <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
                 <strong><%= @instrument.user.username %></strong>
               </div>
-
 
               <div class="bg-white instrument-map">
                 <%= image_tag "map.png" ,width: 300 %>
@@ -98,3 +107,9 @@
 </div> -->
 
 
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
