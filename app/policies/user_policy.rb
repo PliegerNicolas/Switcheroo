@@ -9,7 +9,7 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
-  def profile?
+  def dashboard?
     true
   end
 end
