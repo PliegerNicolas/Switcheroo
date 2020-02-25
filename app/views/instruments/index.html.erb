@@ -10,7 +10,7 @@
   <% end %>
 <div class="cards">
   <% @instruments.each do |instrument| %>
-  
+
   <%= link_to instrument_path(instrument) do %>
 
   <div class="card">
@@ -18,7 +18,7 @@
     <div class="card-image"
     style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
     <% if !i_photo.nil? %>
-    url('<%= cl_image_path i_photo.key, height: 300, width: 400, crop: :fill %>');
+    url('<%= cl_image_path 'default_instrument_image', height: 300, width: 400, crop: :fill %>');
     <% end %>
     ">
   </div>
