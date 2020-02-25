@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def dashboard
     @orders = current_user.orders
     @instruments = current_user.instruments
+    @favorites = current_user.favorites
     authorize current_user
   end
 

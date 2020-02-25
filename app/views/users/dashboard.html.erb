@@ -66,3 +66,34 @@
     </table>
 
 </div>
+
+<div class="mt-4">
+    <p class="h3">Favorites</p>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Instrument</th>
+            <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @favorites.each do |favorite| %>
+                <tr>
+                    <th scope="row">
+                        <%= favorite.id %>
+                    </th>
+                    <td>
+                        <%= link_to instrument_path(favorite.instrument) do %>
+                            <%= favorite.instrument.name %>
+                        <% end %>
+                    </td>
+                    <td>
+                        <%= favorite.instrument.price %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
