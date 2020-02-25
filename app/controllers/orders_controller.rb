@@ -20,7 +20,8 @@ class OrdersController < ApplicationController
       instrument_id: @instrument.id,
       renter_id: @instrument.user.id,
       user_id: current_user.id,
-      due_date: Date.new # @TODO Making adding a real due date possible.
+      start_date: params[:starts_at],
+      end_date: params[:ends_at]
     }
   end
 

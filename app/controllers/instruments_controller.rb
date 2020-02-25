@@ -11,6 +11,13 @@ class InstrumentsController < ApplicationController
 
   def show
     @instrument = Instrument.find(params[:id])
+    if params[:date_select].present? && params[:date_select][:starts_at].present?
+      order_date = params[:date_select]
+      order_date = { starts_at: order_date[:starts_at], ends_at: order_date[:ends_at] }
+      redirect_to new_instrument_order_path(@instrument.id, order_date)
+    else
+      render :show
+    end
   end
 
   def new

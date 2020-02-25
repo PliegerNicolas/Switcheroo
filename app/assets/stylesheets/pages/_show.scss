@@ -1,15 +1,7 @@
 
-// .container {
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-around;
-//     border-radius: 5px;
-//     width: 100%;
-//     padding-right: 15px;
-//     padding-left: 15px;
-//     margin-right: auto;
-//     margin-left: auto;
-// }
+.breadcrumb {
+  background: transparent;
+}
 
 .instrument-card {
   display: flex;
@@ -26,16 +18,6 @@
   text-align: right;
 }
 
-.availability-btn {
-  color: white;
-  font-weight: lighter;
-  background-color: #40a02b;
-  &:hover {
-    font-weight: normal;
-    color: white;
-    background-color: #62c64b;
-  }
-}
 
 .closed-btn {
   color: white;
@@ -46,6 +28,7 @@
 .instrument-information {
   flex: 1;
   overflow: hidden;
+  align-self: flex-end;
 }
 
 .instrument-img {
@@ -72,12 +55,20 @@
   margin: 0px 0px 10px 10px;
 }
 
+.fa-star {
+  color: #ffdb96;
+}
+
 .choose-dates {
-  padding: 10px 15px;
+  font-weight: 400;
+  align-items: left;
+  padding: 10px 0px;
 }
 
 .fa-calendar {
   color: #555555;
+  margin-right: 10px;
+  margin-left: 20px;
 }
 
 .cn {
@@ -86,11 +77,72 @@
   align-items: center;
 }
 
-.transparent {
+.datepicker {
   background-color: transparent !important;
-  padding: 5px;
+  height: 45px;
+  border-left: 0;
+  font-size: 16px;
+  border: none;
+  font-weight: 200;
 }
 
-.until {
-  padding-left: 20px;
+.form-inline div {
+  display: inline-block;
+  max-width: 80px !important;
+}
+
+
+.fa-long-arrow-alt-right {
+  margin-left: 10px;
+  margin-right: 22px;
+}
+
+.form-style {
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  margin: 5px 0px;
+  display: inline-block;
+  width: 60%;
+  align-items: center;
+}
+
+.start-date {
+  max-width: 120px;
+}
+
+.end-date {
+  max-width: 80px;
+}
+
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: lighter;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    &:hover {
+      font-weight: normal;
+      color: white;
+      background-color: #f98484;
+      border: none;
+  }
+}
+
+.submit {
+  width: 20%;
+  padding: 10px;
+  background: #ff6161;
+  border: 1px solid #fa6161;
+  height: 50px;
+}
+
+.small-text {
+  padding: 10px 15px 0px 15px;
+  font-size: 14px;
+  color: #353535;
+}
+
+.paragraph {
+  padding: 10px 15px;
 }

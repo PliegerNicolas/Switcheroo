@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_185738) do
+ActiveRecord::Schema.define(version: 2020_02_25_200922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,9 +66,10 @@ ActiveRecord::Schema.define(version: 2020_02_20_185738) do
     t.integer "renter_id"
     t.bigint "instrument_id"
     t.string "status", default: "open"
-    t.date "due_date"
+    t.string "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "start_date"
     t.index ["instrument_id"], name: "index_orders_on_instrument_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
