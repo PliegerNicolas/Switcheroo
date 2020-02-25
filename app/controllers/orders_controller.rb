@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :find_selected_instrument
   def new
     # Rename the method "create" and make it a post ?
+    raise
     @order = Order.new(order_params)
     @order.status = 'pending' if @order.status == 'open'
     if @order.instrument.status == 'available'
