@@ -371,7 +371,7 @@ SimpleForm.setup do |config|
       input.use :hint,  :wrap_with => { :tag => 'span', :class => 'help-block' }
       input.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
     end
-
+  end
 
 
   # Input Group - custom component
