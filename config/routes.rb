@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'instruments#index'
   resources :instruments do
+    post 'favorite', to: 'instruments#favorite'
     resources :orders, only: [:new]
   end
 

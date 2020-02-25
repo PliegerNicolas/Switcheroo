@@ -45,6 +45,16 @@ class InstrumentsController < ApplicationController
     redirect_to instrument_path
   end
 
+  def favorite
+    skip_authorization
+    @favorite = Favorite.new instrument_id: params[:instrument_id], user_id: current_user.id
+    respond_to do |format|
+      if @favorite.save
+        format.js
+      end
+    end
+  end
+
   private
 
   def set_instrument
