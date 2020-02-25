@@ -14,11 +14,10 @@
   <%= link_to instrument_path(instrument) do %>
 
   <div class="card">
-    <% i_photo = instrument.photos.first %>
     <div class="card-image"
     style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-    <% if !i_photo.nil? %>
-      url('<%= cl_image_path i_photo.key, height: 300, width: 400, crop: :fill %>');
+    <% unless instrument.photos.attachments.count == 0 %>
+      url('<%= cl_image_path instrument.photos.attachments.first.key, height: 300, width: 400, crop: :fill %>');
     <% else %>
       url('<%= cl_image_path 'default_instrument_image', height: 300, width: 400, crop: :fill %>');
     <% end %>
