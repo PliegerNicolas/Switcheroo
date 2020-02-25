@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :find_selected_instrument
+  before_action :find_selected_instrument, only: [:new]
   def new
     # Rename the method "create" and make it a post ?
     @order = Order.new(order_params)
@@ -11,6 +11,13 @@ class OrdersController < ApplicationController
     @order.save
     authorize @order
     redirect_to instrument_path(@instrument.id)
+  end
+
+  def destroy
+    @order = Order.find(params[:id])
+    @order.status = 'closed'
+    authorize @order
+    redirect_to dashboard_path
   end
 
   private

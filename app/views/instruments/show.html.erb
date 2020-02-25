@@ -14,10 +14,11 @@
       <div class="instrument-card">
 
         <div class="instrument-information">
-          <% i_photo = @instrument.photos.first %>
-          <div class="instrument-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path i_photo.key, height: 300, width: 400, crop: :fill %>')">
-          </div>
-
+          <% unless @instrument.photos.attachments.count == 0 %>
+            <div class="instrument-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @instrument.photos.attachments.first.key, height: 300, width: 400, crop: :fill %>')"></div>
+          <% else %>
+            <div class="instrument-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path 'default_instrument_image', height: 300, width: 400, crop: :fill %>')"></div>
+          <% end %>
           <div class="bg-white instrument-details">
             <div>
               <h1><%= @instrument.name %></h1>
@@ -25,7 +26,7 @@
             </div>
 
             <div class="instrument-price">
-              <h3>10€/hour</h3>
+              <h3><%= @instrument.price %>€/hour</h3>
             </div>
 
           </div>

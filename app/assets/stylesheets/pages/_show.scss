@@ -8,6 +8,7 @@
 }
 
 .instrument-details {
+  height: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,7 +33,7 @@
 }
 
 .instrument-img {
-  height: 300px;
+  height: 340px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
