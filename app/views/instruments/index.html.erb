@@ -25,8 +25,22 @@
 
   <div class="card-info">
     <div class="card-name"><%= instrument.name %></div>
-    <div class="card-price"><%= instrument.price %> &euro; </div>
+    <div class="card-price">
+      <span>
+        <%= instrument.price %> &euro;
+      </span>
+      <span>
+        <% if signed_in? %>
+          <%= link_to instrument_favorite_path(instrument), remote: true, method: :post do %>
+            <i class="fas fa-heart" data-favorite-instrument-id="<%= instrument.id %>">&nbsp;</i>
+          <% end %>
+        <% else %>
+            <i class="fas fa-heart">&nbsp;</i>
+        <% end %>
+      </span>
+    </div>
   </div>
+
 </div>
 <% end %>
 <% end %>
