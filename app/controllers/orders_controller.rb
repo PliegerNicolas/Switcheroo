@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :find_selected_instrument
   def new
     # Rename the method "create" and make it a post ?
-    raise
     @order = Order.new(order_params)
     @order.status = 'pending' if @order.status == 'open'
     if @order.instrument.status == 'available'
@@ -21,7 +20,8 @@ class OrdersController < ApplicationController
       instrument_id: @instrument.id,
       renter_id: @instrument.user.id,
       user_id: current_user.id,
-      due_date: Date.new # @TODO Making adding a real due date possible.
+      start_date: params[:starts_at],
+      end_date: params[:ends_at]
     }
   end
 
