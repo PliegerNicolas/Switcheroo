@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon position-absolute w-100">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <% if current_page?(root_path) %> position-absolute w-100<% end %>">
   <%= link_to root_path, class: "navbar-brand" do %>
     <h1>Switcharoo</h1>
   <% end %>
