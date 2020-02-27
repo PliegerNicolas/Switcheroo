@@ -3,6 +3,18 @@
   background: transparent;
 }
 
+.top-links {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.owner-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .instrument-card {
   display: flex;
 }
@@ -54,7 +66,12 @@
   align-self: flex-end;
 }
 
-.owner-info {
+.owner-info2 {
+  padding: 10px 15px;
+  margin: 0px 0px 10px 10px;
+}
+
+.user-rating {
   padding: 10px 15px;
   margin: 0px 0px 10px 10px;
 }
@@ -92,7 +109,6 @@
 
 .form-inline div {
   display: inline-block;
-  max-width: 80px !important;
 }
 
 
@@ -111,11 +127,11 @@
 }
 
 .start-date {
-  max-width: 120px;
+  max-width: 200px;
 }
 
 .end-date {
-  max-width: 120px;
+  max-width: 200px;
 }
 
 .btn {
@@ -147,6 +163,12 @@
   color: #353535;
 }
 
-.paragraph {
-  padding: 10px 15px;
+
+.price-calc {
+  padding-left: 20px;
 }
+
+.instrument-details {
+  padding-right: 20px;
+}
+

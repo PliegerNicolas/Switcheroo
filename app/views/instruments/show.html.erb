@@ -1,12 +1,16 @@
 <div class="container">
 
+<div class="top-links">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
       <li class="breadcrumb-item"><a href="#">Ad</a></li>
       <li class="breadcrumb-item active" aria-current="page">ID1234</li>
     </ol>
   </nav>
+   <%= link_to "Back to all instruments", root_path %>
+</div>
+
 
   <div class="bg white">
     <div section="container">
@@ -20,12 +24,12 @@
 
           <div class="bg-white instrument-details">
             <div>
-              <h1><%= @instrument.name %></h1>
+              <h1><%= @instrument.name %><span><i class="fas fa-heart btn"></i></span></h1>
 
             </div>
 
             <div class="instrument-price">
-              <h3>10€/hour</h3>
+              <h3><span class="price-calc">10</span>€/hour</h3>
             </div>
 
           </div>
@@ -33,8 +37,10 @@
 
         <div class="extra-info">
           <div class="bg-white owner-info">
+            <div class="owner-info2">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar" %>
             <strong><%= link_to @instrument.user.username, user_path(@instrument.user.id) %></strong>
+            </div>
             <div class="col-xs-3 user-rating cn">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
@@ -67,39 +73,32 @@
               <span><i class="fas fa-calendar"></i></span>
             <%= f.input :ends_at, label: false, as: :string, required: false, input_html: { placeholder: 'Until', class: "datepicker end-date border-0", id: "endDate" } %>
           </div>
-          <%= f.button :submit, "Book", class: "btn btn-primary submit" %>
+          <%= f.button :submit, "Book" , class: "btn btn-primary submit" %>
           <% end %>
 
-          <!-- Availability thing ! -->
-          <% instrument_orders = Order.where("instrument_id = #{@instrument.id}") %>
-          <% if instrument_orders.empty? || instrument_orders.last.status == 'open'%>
-            <p class="btn btn-primary">Open</p>
-          <% else %>
-            <p class="btn btn-primary">Closed</p>
-          <% end %>
         </div>
       </div>
 
-      <p>
+      <!-- <p>
       <div class="total-cost" id="quick-booking-total-cost" style="display: block;">
       <div class="row">
         <div class="col-xs-6 text-left">
           Total cost
         </div>
         <div class="col-xs-6 text-right">
-          <select onChange="calcPrice()"name="carType" id="group"></select>
-          <span id="booking-cost-">€100.00</span><strong></strong>
+          <span onChange="calcPrice()" id="booking-cost-">€100.00</span><strong></strong>
         </div>
       </div>
     </div>
-    </p>
+    </p> -->
 
-
+<br>
       <div class="paragraph">
-        <p> Guitarra em ótimo estado. Setup feito recentemente.</p>
+        <p> Instrumento vintage em ótimo estado. Setup feito recentemente.</p>
+        <p>Entrego em mãos em Lisboa e arredores.</p>
       </div>
+<br>
 
       </div>
   </div>
-  <%= link_to "Back to all instruments", root_path %>
 </div>
