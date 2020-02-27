@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-image: url(bg.jpeg);
+  background-image: asset-url('bg.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
 }
