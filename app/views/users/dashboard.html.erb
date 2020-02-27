@@ -8,6 +8,7 @@
             <th scope="col">#</th>
             <th scope="col">Instrument</th>
             <th scope="col">Renter</th>
+            <th scope="col">Seller</th>
             <th scope="col">From</th>
             <th scope="col">-</th>
             <th scope="col">To</th>
@@ -25,7 +26,12 @@
                       <%= link_to order.instrument.name, instrument_path(order.instrument_id) %>
                     </td>
                     <td>
-                      <%= order.renter.username %>
+                      <% user = User.find(order.renter_id)%>
+                      <%= link_to user.username, user_path(user.id) %>
+                      <!-- or : current_user.username -->
+                    </td>
+                    <td>
+                      <%= link_to order.user.username, user_path(order.user.id) %>
                     </td>
                     <td>
                       <%= order.start_date %>

@@ -25,8 +25,8 @@ class OrdersController < ApplicationController
   def order_params
     {
       instrument_id: @instrument.id,
-      renter_id: @instrument.user.id,
-      user_id: current_user.id,
+      renter_id: current_user.id,
+      user_id: @instrument.user.id,
       start_date: params[:starts_at],
       end_date: params[:ends_at]
     }

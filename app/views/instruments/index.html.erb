@@ -16,13 +16,12 @@
   <div class="card">
     <div class="card-image"
     style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-    <% unless instrument.photos.attachments.count == 0 %>
-      url('<%= cl_image_path instrument.photos.attachments.first.key, height: 300, width: 400, crop: :fill %>');
-    <% else %>
-      url('<%= cl_image_path 'default_instrument_image', height: 300, width: 400, crop: :fill %>');
-    <% end %>
-    ">
-  </div>
+      <% unless instrument.photos.attachments.count == 0 %>
+        url('<%= cl_image_path instrument.photos.attachments.first.key, height: 300, width: 400, crop: :fill %>');
+      <% else %>
+        url('<%= cl_image_path 'default_instrument_image', height: 300, width: 400, crop: :fill %>');
+      <% end %>">
+    </div>
 
   <div class="card-info">
     <div class="card-name"><%= instrument.name %></div>
@@ -31,6 +30,7 @@
         <%= instrument.price %> &euro;
       </span>
       <span>
+
         <% if signed_in? %>
           <%= link_to instrument_favorite_path(instrument), remote: true, method: :post do %>
             <i class="fas fa-heart" data-favorite-instrument-id="<%= instrument.id %>">&nbsp;</i>
@@ -38,6 +38,7 @@
         <% else %>
             <i class="fas fa-heart">&nbsp;</i>
         <% end %>
+
       </span>
     </div>
   </div>
