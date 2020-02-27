@@ -8,6 +8,8 @@ class InstrumentsController < ApplicationController
     else
       @instruments = policy_scope(Instrument)
     end
+
+    render layout: "layouts/homepage"
   end
 
   def show
@@ -60,6 +62,22 @@ class InstrumentsController < ApplicationController
     end
   end
 
+  def favorite
+    skip_authorization
+    if is_favorite?
+      @favorite = Favorite.new instrument_id: params[:instrument_id], user_id: current_user.id
+      @favorite.save
+      @saved = true
+    else
+      @id = Favorite.where("instrument_id = ? and user_id = ?", params[:instrument_id], current_user).pluck(:id)
+      Favorite.destroy(@id)
+      @saved = false
+    end
+
+    respond_to do |format|
+      format.js
+    end
+  end
 
   private
 
@@ -86,5 +104,9 @@ class InstrumentsController < ApplicationController
       "instruments.name iLike '%#{query}%'
       or instruments.description iLike '%#{query}%'"
     )
+  end
+
+  def is_favorite?
+    Favorite.where("instrument_id = ? and user_id = ?", params[:instrument_id], current_user).empty?
   end
 end

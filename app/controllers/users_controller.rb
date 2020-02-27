@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
+
   def show
     @user = User.find(params[:id])
     authorize @user
-  end
 
+  end
   def dashboard
-    @orders = current_user.orders
+    orders = policy_scope(Order)
+    @orders = orders.where(renter_id: current_user.id)
     @instruments = current_user.instruments
+    @favorites = current_user.favorites
     authorize current_user
   end
 

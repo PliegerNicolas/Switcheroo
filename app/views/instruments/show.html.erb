@@ -18,10 +18,11 @@
       <div class="instrument-card">
 
         <div class="instrument-information">
-          <% i_photo = @instrument.photos.first %>
-          <div class="instrument-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path i_photo.key, height: 300, width: 400, crop: :fill %>')">
-          </div>
-
+          <% unless @instrument.photos.attachments.count == 0 %>
+            <div class="instrument-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @instrument.photos.attachments.first.key, height: 300, width: 400, crop: :fill %>')"></div>
+          <% else %>
+            <div class="instrument-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path 'default_instrument_image', height: 300, width: 400, crop: :fill %>')"></div>
+          <% end %>
           <div class="bg-white instrument-details">
             <div>
               <h1><%= @instrument.name %><span><i class="fas fa-heart btn"></i></span></h1>
@@ -29,7 +30,9 @@
             </div>
 
             <div class="instrument-price">
+
               <h3><span class="price-calc">10</span>€/hour</h3>
+
             </div>
 
           </div>
@@ -75,7 +78,10 @@
           </div>
           <%= f.button :submit, "Book" , class: "btn btn-primary submit" %>
           <% end %>
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
         </div>
       </div>
 
