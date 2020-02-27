@@ -7,6 +7,8 @@ class InstrumentsController < ApplicationController
     else
       @instruments = policy_scope(Instrument)
     end
+
+    render layout: "layouts/homepage"
   end
 
   def show
