@@ -1,5 +1,6 @@
 class InstrumentsController < ApplicationController
   before_action :set_instrument, only: %i[show edit update destroy]
+  before_action :check_available_dates, only: [:show]
 
   def index
     if params[:query].present?
@@ -52,6 +53,13 @@ class InstrumentsController < ApplicationController
   def destroy
     Instrument.destroy(@instrument.id)
     redirect_to instrument_path
+  end
+
+  def check_available_dates
+    @available_dates = []
+    @instrument.orders.each do |order|
+      @available_dates << {from:order.start_date , to:order.end_date}
+    end
   end
 
   def favorite
