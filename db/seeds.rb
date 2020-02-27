@@ -40,4 +40,10 @@ print 'Creating instruments'
 end
 
 puts ''
+puts 'Create testing users'
+User.create! username: 'john.doe', email: 'test@gmail.com', password: '123456'
+User.create! username: 'jane.doe', email: 'test2@gmail.com', password: '123456'
+User.create! username: 'nuno@alvesmartins.eu', email: 'nuno@alvesmartins.eu', password: 'foobar27'
+
+puts ''
 puts 'Finished seeding!'

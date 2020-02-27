@@ -8,6 +8,8 @@ class InstrumentsController < ApplicationController
     else
       @instruments = policy_scope(Instrument)
     end
+
+    render layout: "layouts/homepage"
   end
 
   def show
@@ -60,6 +62,15 @@ class InstrumentsController < ApplicationController
     end
   end
 
+  def favorite
+    skip_authorization
+    @favorite = Favorite.new instrument_id: params[:instrument_id], user_id: current_user.id
+    respond_to do |format|
+      if @favorite.save
+        format.js
+      end
+    end
+  end
 
   private
 

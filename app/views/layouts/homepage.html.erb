@@ -13,7 +13,13 @@
 
 <body>
 
-  <%= render 'layouts/navbar' %>
+  <section class="homepage">
+    <%= render 'layouts/navbar' %>
+
+    <div class="search">
+      <%= render 'layouts/search' %>
+    </div>
+  </section>
 
   <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
@@ -31,7 +37,6 @@
   </div>
 
   <%= render 'layouts/footer' %>
-
 
   <%= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
 </body>

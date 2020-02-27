@@ -1,4 +1,15 @@
 // Specific CSS for your home-page
+
+.homepage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: asset-url('bg.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .cards {
     display: flex;
     align-items: center;
@@ -9,4 +20,8 @@
       text-decoration: none;
       color: black;
     }
+}
+
+.favorite {
+  color: #8A0808;
 }

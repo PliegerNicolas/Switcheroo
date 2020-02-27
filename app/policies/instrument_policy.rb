@@ -28,4 +28,8 @@ class InstrumentPolicy < ApplicationPolicy
   def destroy?
     record.user == user || user.admin
   end
+
+  def favorite?
+    true
+  end
 end

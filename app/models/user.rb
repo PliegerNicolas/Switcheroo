@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   has_many :orders
   has_many :instruments
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_one_attached :photo
 end

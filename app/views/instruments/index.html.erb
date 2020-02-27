@@ -1,32 +1,40 @@
 <h1>All Instruments</h1>
-<div class="index-query-form">
-  <%= simple_form_for :search, url: root_path, method: "get" do |f| %>
-  <%= f.text_field :query, name: "query", value: @query %>
-  <%= f.submit "Search", name: nil %>
-  <% end %>
-</div>
-  <% if params[:query].present? %>
-  <p>You found <strong><%= @instruments.count %></strong> results by search <strong><%= params[:query] %></strong>.</p>
-  <% end %>
+
 <div class="cards">
   <% @instruments.each do |instrument| %>
-  
+
   <%= link_to instrument_path(instrument) do %>
 
   <div class="card">
-    <% i_photo = instrument.photos.first %>
     <div class="card-image"
     style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-    <% if !i_photo.nil? %>
-    url('<%= cl_image_path i_photo.key, height: 300, width: 400, crop: :fill %>');
-    <% end %>
-    ">
-  </div>
+      <% unless instrument.photos.attachments.count == 0 %>
+        url('<%= cl_image_path instrument.photos.attachments.first.key, height: 300, width: 400, crop: :fill %>');
+      <% else %>
+        url('<%= cl_image_path 'default_instrument_image', height: 300, width: 400, crop: :fill %>');
+      <% end %>">
+    </div>
 
   <div class="card-info">
     <div class="card-name"><%= instrument.name %></div>
-    <div class="card-price"><%= instrument.price %> &euro; </div>
+    <div class="card-price">
+      <span>
+        <%= instrument.price %> &euro;
+      </span>
+      <span>
+
+        <% if signed_in? %>
+          <%= link_to instrument_favorite_path(instrument), remote: true, method: :post do %>
+            <i class="fas fa-heart" data-favorite-instrument-id="<%= instrument.id %>">&nbsp;</i>
+          <% end %>
+        <% else %>
+            <i class="fas fa-heart">&nbsp;</i>
+        <% end %>
+
+      </span>
+    </div>
   </div>
+
 </div>
 <% end %>
 <% end %>
