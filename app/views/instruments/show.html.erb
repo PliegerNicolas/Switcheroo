@@ -70,14 +70,6 @@
           </div>
           <%= f.button :submit, "Book", class: "btn btn-primary submit" %>
           <% end %>
-
-          <!-- Availability thing ! -->
-          <% instrument_orders = Order.where("instrument_id = #{@instrument.id}") %>
-          <% if instrument_orders.empty? || instrument_orders.last.status == 'open'%>
-            <p class="btn btn-primary">Open</p>
-          <% else %>
-            <p class="btn btn-primary">Closed</p>
-          <% end %>
         </div>
       </div>
 

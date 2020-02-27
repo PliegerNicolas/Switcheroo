@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     @order.status = 'closed'
+    @order.save
     authorize @order
     redirect_to dashboard_path
   end
