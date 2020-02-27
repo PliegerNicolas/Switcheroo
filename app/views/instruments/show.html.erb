@@ -45,7 +45,9 @@
           </div>
 
               <div class="bg-white instrument-map">
+                <div class="image-map">
                 <%= image_tag "map.png" ,width: 300 %>
+              </div>
               </div>
             </div>
 
@@ -56,7 +58,7 @@
         <div class="small-text">
           <p>Choose dates:</p>
         </div>
-        <div class="pick-dates-pannel">
+        <div class="pick-dates-pannel" data-target="<%= @available_dates %>">
           <div class="col-xs-5 form-style">
             <%= simple_form_for :date_select, method: "get", :html=> { class: "form-inline" } do |f| %>
               <span><i class="fas fa-calendar"></i></span>
