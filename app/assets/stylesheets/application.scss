@@ -29,10 +29,3 @@ footer {
 .container {
   min-height: calc(100vh - 162px)
 }
-
-
-$('.submit').on("click", function() {
-if (confirm('Do you want to book this dates ?')) {
-$(".form-vertical").submit();
-}
-})
