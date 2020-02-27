@@ -11,13 +11,13 @@
   <%= stylesheet_pack_tag    'application' %>
 </head>
 
-<body>
+<body class="<%= controller_name %>-<%= action_name %>">
 
   <section class="homepage">
-    <%= render 'layouts/navbar' %>
+    <%= render 'components/navbar' %>
 
     <div class="search">
-      <%= render 'layouts/search' %>
+      <%= render 'components/search' %>
     </div>
   </section>
 
@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <%= render 'layouts/footer' %>
+  <%= render 'components/footer' %>
 
   <%= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
 </body>

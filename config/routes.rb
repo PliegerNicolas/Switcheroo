@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  resources :users, only: [:show]
   root 'instruments#index'
   resources :instruments do
     post 'favorite', to: 'instruments#favorite'
@@ -7,8 +9,7 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'users#dashboard'
 
-  resources :orders, only: [:show, :destroy]
+  resources :orders, only: [:destroy]
 
-  devise_for :users
-  resources :users
+
 end
